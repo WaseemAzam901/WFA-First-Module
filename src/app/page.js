@@ -1,8 +1,23 @@
-import Image from "next/image";
+'use client'
+import ScrollReveal from "scrollreveal";
+import { useEffect } from "react";
 import { FaBars, FaAmazon, FaFacebookF, FaXTwitter } from "react-icons/fa6";
 import { AiOutlineApple } from "react-icons/ai";
 
 export default function Home() {
+  useEffect(() => {
+    // Client-side-only code
+    if (typeof window !== 'undefined') {
+      const scroll = ScrollReveal({
+        reset: true,
+        duration: 2600,
+        distance: '60px',
+      });
+
+      scroll.reveal('.image-transform', { delay: 400, origin: 'top' });
+      scroll.reveal('.text-transform', { delay: 300, origin: 'left' });
+    }
+  }, []);
   return (
     <>
       <div className="min-h-screen px-6 py-3 space-y-10 md:px-10 lg:px-16 lg:py-7">
@@ -28,15 +43,15 @@ export default function Home() {
         <main className="lg:flex">
           {/* agar hum itmes center or justify center use karain gy toh jab hum choti yeni mobile screen say bari screen per jayein gy toh hamari picture idhar udhar nahi jaye gi balkay center ,main rahay gi */}
           {/* 24 minutes video lg:flex-1 agar hum is ko aur neechay walay ko bhi de ddein gy toh yeh equal spaces lain gy means large screen per hum chatay hain k adhi screen per yeh aye aur us k baad adhi per neechay wala content toh us k liye hum essa kartay hain */}
-          <div className="flex items-center justify-center lg:flex-1 lg:order-2">
+          <div className="flex items-center justify-center lg:flex-1 lg:order-2 lg:justify-end image-transform">
             <img
-              src="8b3c8f0dfdf841e2b8d75ae8c45e035d.jpeg"
+              src="img3.avif"
               alt=""
-              className="outline outline-white shadow-2xl shadow-black lg:h-[600px] lg:w-[600px] lg:rounded-full object-cover object-center"
+              className="outline outline-white shadow-2xl shadow-black lg:h-[600px] lg:w-[600px] lg:rounded-full lg:object-center"
             />
           </div>
 
-          <div className="space-y-6 mt-16 lg:flex-1 lg:order-1">
+          <div className="space-y-6 mt-16 lg:flex-1 lg:order-1 lg:mt-32 text-transform">
             <div className="text-7xl font-bold leading-tight">
               <h2>Let's Switch</h2>
               <h2>To Remote</h2>
